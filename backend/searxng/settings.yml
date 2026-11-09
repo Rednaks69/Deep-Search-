@@ -1,0 +1,326 @@
+use_default_settings: true
+
+general:
+  debug: false
+  instance_name: "SearXNG"
+  privacypolicy_url: false
+  donation_url: false
+  contact_url: false
+  enable_metrics: true
+  open_metrics: ""
+
+search:
+  safe_search: 0
+  autocomplete: "duckduckgo"
+  autocomplete_min: 4
+  favicon_resolver: ""
+  default_lang: "auto"
+  ban_time_on_fail: 5
+  max_ban_time_on_fail: 120
+  formats:
+    - html
+    - json
+
+server:
+  port: 8080
+  bind_address: "0.0.0.0"
+  base_url: false
+  limiter: false
+  public_instance: false
+  secret_key: "gkgxwtrobwtxnoounndftfifujuwcwja"
+  image_proxy: false
+  http_protocol_version: "1.0"
+  method: "GET"
+  default_http_headers:
+    X-Content-Type-Options: nosniff
+    X-Download-Options: noopen
+    X-Robots-Tag: noindex, nofollow
+    Referrer-Policy: no-referrer
+
+ui:
+  static_path: ""
+  templates_path: ""
+  query_in_title: false
+  default_theme: simple
+  center_alignment: false
+  default_locale: ""
+  theme_args:
+    simple_style: auto
+  search_on_category_select: true
+  hotkeys: default
+  url_formatting: pretty
+
+preferences:
+  lock: []
+
+outgoing:
+  request_timeout: 3.0
+  useragent_suffix: ""
+  pool_connections: 100
+  enable_http2: true
+
+plugins:
+  searx.plugins.calculator.SXNGPlugin:
+    active: true
+  searx.plugins.infinite_scroll.SXNGPlugin:
+    active: false
+  searx.plugins.hash_plugin.SXNGPlugin:
+    active: true
+  searx.plugins.self_info.SXNGPlugin:
+    active: true
+  searx.plugins.unit_converter.SXNGPlugin:
+    active: true
+  searx.plugins.ahmia_filter.SXNGPlugin:
+    active: true
+  searx.plugins.hostnames.SXNGPlugin:
+    active: true
+  searx.plugins.time_zone.SXNGPlugin:
+    active: true
+  searx.plugins.oa_doi_rewrite.SXNGPlugin:
+    active: false
+  searx.plugins.tor_check.SXNGPlugin:
+    active: false
+  searx.plugins.tracker_url_remover.SXNGPlugin:
+    active: true
+
+categories_as_tabs:
+  general:
+  images:
+  videos:
+  news:
+  map:
+  music:
+  it:
+  science:
+  files:
+  social media:
+
+engines:
+  - name: duckduckgo
+    engine: duckduckgo
+    shortcut: ddg
+
+  - name: wikipedia
+    engine: wikipedia
+    shortcut: wp
+    display_type: ["infobox"]
+    categories: [general]
+
+  - name: arch linux wiki
+    engine: archlinux
+    shortcut: al
+
+  - name: google news
+    engine: google_news
+    shortcut: gon
+
+  - name: google videos
+    engine: google_videos
+    shortcut: gov
+
+  - name: wiktionary
+    engine: mediawiki
+    shortcut: wt
+    categories: [dictionaries, wikimedia]
+    base_url: "https://{language}.wiktionary.org/"
+    search_type: text
+
+  - name: docker hub
+    engine: docker_hub
+    shortcut: dh
+    categories: [it, packages]
+
+  - name: stackoverflow
+    engine: stackexchange
+    shortcut: st
+    api_site: "stackoverflow"
+    categories: [it, q&a]
+
+  - name: pubmed
+    engine: pubmed
+    shortcut: pub
+
+  - name: pypi
+    shortcut: pypi
+    engine: pypi
+
+  - name: github
+    engine: github
+    shortcut: gh
+
+  - name: gentoo
+    engine: mediawiki
+    shortcut: ge
+    categories: ["it", "software wikis"]
+    base_url: "https://wiki.gentoo.org/"
+    api_path: "api.php"
+    search_type: text
+    timeout: 10
+
+  - name: kickass
+    engine: kickass
+    base_url:
+      - https://kickasstorrents.to
+      - https://kickasstorrents.cr
+    shortcut: kc
+    timeout: 4.0
+
+  - name: openstreetmap
+    engine: openstreetmap
+    shortcut: osm
+
+  - name: youtube
+    shortcut: yt
+    engine: youtube_noapi
+
+  - name: dailymotion
+    engine: dailymotion
+    shortcut: dm
+
+  - name: vimeo
+    engine: vimeo
+    shortcut: vm
+
+  - name: bing images
+    engine: bing_images
+    shortcut: bii
+
+  - name: bing videos
+    engine: bing_videos
+    shortcut: biv
+
+  - name: duckduckgo images
+    engine: duckduckgo_extra
+    categories: [images]
+    ddg_category: images
+    shortcut: ddi
+
+  - name: duckduckgo videos
+    engine: duckduckgo_extra
+    categories: [videos]
+    ddg_category: videos
+    shortcut: ddv
+
+  - name: duckduckgo news
+    engine: duckduckgo_extra
+    categories: [news]
+    ddg_category: news
+    shortcut: ddn
+
+  - name: 1x
+    engine: www1x
+    shortcut: 1x
+    timeout: 3.0
+
+  - name: pexels
+    engine: pexels
+    shortcut: pe
+
+  - name: unsplash
+    engine: unsplash
+    shortcut: us
+
+  - name: photon
+    engine: photon
+    shortcut: ph
+
+  - name: currency
+    engine: currency_convert
+    shortcut: cc
+
+  - name: torznab
+    engine: torznab
+    shortcut: torznab
+    disabled: true
+    base_url: "http://localhost:9117/api/v2.0/indexers/eztv/results/torznab"
+
+  - name: wttr.in
+    engine: wttr
+    shortcut: wttr
+    timeout: 9.0
+
+  - name: bandcamp
+    engine: bandcamp
+    shortcut: bc
+    categories: music
+
+  - name: genius
+    engine: genius
+    shortcut: gen
+
+  - name: mixcloud
+    engine: mixcloud
+    shortcut: mc
+
+  - name: radio browser
+    engine: radio_browser
+    shortcut: rb
+
+  - name: soundcloud
+    engine: soundcloud
+    shortcut: sc
+
+  - name: askubuntu
+    engine: stackexchange
+    shortcut: ubuntu
+    api_site: "askubuntu"
+    categories: [it, q&a]
+
+  - name: superuser
+    engine: stackexchange
+    shortcut: su
+    api_site: "superuser"
+    categories: [it, q&a]
+
+  - name: arxiv
+    engine: arxiv
+    shortcut: arx
+
+  - name: google scholar
+    engine: google_scholar
+    shortcut: gos
+
+  - name: semantic scholar
+    engine: semantic_scholar
+    shortcut: se
+
+  - name: europepmc
+    engine: europepmc
+    shortcut: epmc
+
+  - name: lingva
+    engine: lingva
+    shortcut: lv
+    timeout: 6.0
+
+  - name: mdn
+    shortcut: mdn
+    engine: json_engine
+    categories: [it]
+    paging: true
+    search_url: https://developer.mozilla.org/api/v1/search?q={query}&page={pageno}
+    results_query: documents
+    url_query: mdn_url
+    url_prefix: https://developer.mozilla.org
+    title_query: title
+    content_query: summary
+
+  - name: wikidata
+    engine: wikidata
+    shortcut: wd
+    timeout: 3.0
+    weight: 2
+    display_type: ["infobox"]
+    categories: [general]
+
+  - name: imdb
+    engine: imdb
+    shortcut: imdb
+    timeout: 6.0
+    disabled: true
+
+doi_resolvers:
+  oadoi.org: "https://oadoi.org/"
+  doi.org: "https://doi.org/"
+
+default_doi_resolver: "oadoi.org"

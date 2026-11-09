@@ -1,0 +1,8 @@
+
+asyncpg
+ollama
+crawl4ai
+fastapi
+uvicorn
+pdf2image
+pydantic
